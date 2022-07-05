@@ -33,7 +33,7 @@ SELECT RPAD("Orcale", 10, "X"); -OrcaleXXXX
 
 
 Q. Employee {Phone_Number }
-Phone_Number look likes this 7611988883 you need to fetch like this  XXXXXXXX83`
+Phone_Number look likes this 7611988883 you need to fetch like this  XXXXXXXX83
 
 select Sustr(Phone_Number,-2) from Employee;
 
