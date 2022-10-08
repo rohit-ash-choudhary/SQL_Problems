@@ -1,0 +1,97 @@
+1. here is a slight difference b/w delete and truncate statement. The DELETE statement only deletes the rows from the table
+   based on the condition defined by WHERE clause or delete all the rows from the table when condition is not specified.
+   But it does not free the space containing by the table.
+   The TRUNCATE statement: it is used to delete all the rows from the table and free the containing space.
+
+----" Truncate table is faster and uses lesser resources than DELETE TABLE command." ------
+   The rollback process is not possible after truncate table statement. Once you truncate a table you cannot use a flashback
+   table statement to retrieve the content of the table.
+
+2. Some statements cannot be rolled back. In general, these include data definition language (DDL) statements, such as those
+   that create or drop databases, those that create, drop, or alter tables or stored routines.
+   You should design your transactions not to include such statements. If you issue a statement early in a transaction that
+   cannot be rolled back, and then another statement later fails, the full effect of the transaction cannot be rolled back in
+   such cases by issuing a ROLLBACK statement.
+  --- "When a transaction rolled back the data associated with table variable is not rolled back." ---
+
+3. Difference b/w DROP and TRUNCATE statements
+    When you use the drop statement it deletes the table's row together with the table's definition so all the relationships of
+    that table with other tables will no longer be valid.
+
+   When you drop a table:
+
+   Table structure will be dropped
+   Relationship will be dropped
+   Integrity constraints will be dropped
+   Access privileges will also be dropped
+    On the other hand when we TRUNCATE a table, the table structure remains the same, so you will not face any of the above problems.
+
+4. Rollback not possible after TRUNCATE & DROP a table ,because these are DDL COMMAND.
+
+5. How Create Backup of tables :
+   1. Create backup of Customer table
+   Ans.
+       1.  Create table Customer_backup as select * from Customers;
+           or//
+       2.   SELECT * INTO New_table_name FROM old_table_name;  (Test but not work need to check)
+
+6.  Temporary tables can be created at run-time and can do all kinds of operations that a normal table can do. These temporary tables
+    are created inside tempdb database.
+
+    There are two types of temp tables based on the behavior and scope.
+
+    Local Temp Variable
+    Global Temp Variable
+    Local Temp Variable
+    Local temp tables are only available at current connection time. It is automatically deleted when user disconnects from instances.
+    It is started with hash (#) sign.
+
+    CREATE TABLE #local temp table (
+    User id int,
+    Username varchar (50),
+    User address varchar (150)
+    )
+    Global Temp Variable
+    Global temp tables name starts with double hash (##). Once this table is created, it is like a permanent table. It is always ready
+    for all users and not deleted until the total connection is withdrawn.
+
+    CREATE TABLE ##new global temp table (
+    User id int,
+    User name varchar (50),
+    User address varchar (150)
+    )
+
+7. Comparisons between these two clauses Having & Where , but the main difference is that the WHERE clause uses condition for
+   filtering records before any groupings are made, while HAVING clause uses condition for filtering values from a group.
+    Having : 1 . It is a post-filter. , It is used to filter groups.
+             2 . It is a pre-filter. , It is used to filter the single record of the table.
+
+8. Query order of execution in SQL
+   FROM and JOIN s. The FROM clause, and subsequent JOIN s are first executed to determine the total working set of data that is being queried. ...
+   WHERE. ...
+   GROUP BY. ...
+   HAVING. ...
+   SELECT. ...
+   DISTINCT. ...
+   ORDER BY. ...
+   LIMIT / OFFSET
+   Link : https://www.sisense.com/blog/sql-query-order-of-operations/
+
+9. Outer join of two types:
+
+   1.Left outer join (also known as left join): this join returns all the rows from left table combine with the matching rows of the right table.
+   If you get no matching in the right table it returns NULL values.
+
+   2.Right outer join (also known as right join): this join returns all the rows from right table are combined with the matching rows of left table .
+   If you get no column matching in the left table .it returns null value.
+
+10. The SQL full join is the result of combination of both left and right outer join and the join tables have all the records from both tables.
+    It puts NULL on the place of matches not found.
+
+11.
+
+
+
+
+
+
