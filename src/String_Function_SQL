@@ -1,0 +1,225 @@
+Link : https://www.javatpoint.com/sql-string-functions
+
+
+--- RPAD String Function
+    This string function adds the given symbol to the right of the given string.
+    The following SELECT query adds the # symbol three times to the right of the NEW string:
+
+    SELECT RPAD( 'NEW', 6, '#');
+    Output:  NEW###
+
+---  LPAD String Function
+    This string function adds the given symbol to the left of the given string.
+    The following SELECT query adds the # symbol three times to the left of the NEW string:
+
+    SELECT LPAD(String, size, symbol);
+    SELECT LPAD( 'NEW', 6, '#');  6 is total size we return after concat at left
+    Output: ###NEW
+
+---- LTRIM String Function
+     This string function cuts the given character or string from the left of the given original string.
+     It also removes the space from the left of the specified string.
+     This syntax uses LTRIM() with the string:
+
+     SELECT LTRIM(Original_String, trimmed_string );
+
+     The following SELECT query trims the NEW DELHI words from the specified string:
+
+     SELECT LTRIM( 'NEW DELHI IS THE CAPITAL OF INDIA', 'NEW DELHI');
+     Output:  IS THE CAPITAL OF INDIA
+
+---- RTRIM String Function
+     This string function cuts the given character or string from the right of the given original string.
+     It also removes the space from the right of the specified string.
+
+     The following SELECT query trims the NEW DELHI words from the specified string:
+
+     SELECT RTRIM( 'NEW DELHI IS THE CAPITAL OF INDIA', 'CAPITAL OF INDIA');
+     Output: NEW DELHI IS THE
+
+     The following SELECT query trims the space from the right of the specified string:
+      SELECT RTRIM( '              JAVATPOINT           ');
+     Output: '              JAVATPOINT'
+
+ --- SPACE String Function
+     This string function adds the specified number of spaces.
+
+     e following SELECT query adds the 11 spaces:
+
+     SELECT SPACE(11);
+     Output: ___________   (there are 11 space)
+
+--- STRCMP String Function
+    This string function compares the two specified strings with each other.
+    This function returns 0 if both strings in SQL are similar, returns -1 if the first string is smaller
+    than the second string, and returns 1 if the first string is bigger than the second string.
+    The following SELECT query compares the 'INDIA' string with the 'JavaTpoint' string.
+    SELECT STRCMP( 'INDIA, 'JavaTpoint');
+    Output: -1
+    The following SELECT query compares the 'INDIA' string with the 'Point' string.
+    SELECT STRCMP( 'INDIA, 'Point');
+    Output: 0
+
+---- MID String Function
+     This string function extracts the sub-string from the given position of the original string.
+
+      This syntax uses MID() with the string:
+      SELECT MID(Original_String, Starting_Position, Length);
+
+      SELECT MID( 'NEW DELHI IS THE CAPITAL OF INDIA', 5, 10);
+      Output:  DELHI IS T
+
+---- POSITION String Function
+     This string function finds the position of the first occurrence of the given string in the main string.
+
+     This syntax uses POSITION() with the string:
+       SELECT POSITION(String IN Original_String);
+
+     The following SELECT query finds the position of the IT Company string in the original string:
+
+     SELECT POSITION( 'IT Company' IN'javatpoint is an indian IT company');
+     Output: 25
+
+1. CHAR_LENGTH
+   select char_length(first_name) from customer;
+
+2. CHARACTER_LENGTH
+   This string function returns the length of the given string.
+   It shows the number of all characters and spaces from the sentence.
+   select character_length(first_name) from customer;
+
+3. CONCAT
+   This string function concatenates two strings or words and forms a new string in the result.
+
+   select concat(frist_name, last_name) as full_name from customers;
+
+4. CONCAT_WS
+   This string function concatenates multiple strings or words with the help of concatenating symbol.
+   This function uses another parameter that denotes the concatenate symbol.
+
+   select concat_ws('-', first_name, last_name) from customers;
+   return result like Rohit-Choudhary, Jashan-Singh, Somya-Jain
+
+5. FIND_IN_SET
+   This string function allows you to find the position of the searched_string in the set of strings.
+
+   SELECT FIND_IN_SET('Delhi', 'Mumbai, Goa, Banglore, Delhi, Kolkata, Chennai');
+   return postion of delhi: 4
+
+6. FORMAT
+
+   This String function allows you to display the given string in the specified format.
+
+   SELECT FORMAT('0.958', 'Percent');   RETURN  : 95.80%
+
+7. INSERT
+   This string function allows the database users to insert the sub-string in the original string at
+   the given index position.
+
+   SELECT INSERT('JavaExcel', 5, 6, 'Tpoint');
+   Output:
+   JavaTpointExcel
+
+8. INSTR String Function
+   This string function returns the index value of the first occurrence of the given character
+   in the string.
+
+   SELECT INSTR('JavaTpoint', 'T');
+   Output: 5
+
+9. LCASE String Function
+   This string function allows users to convert the specified string into lower case letters.
+
+   SELECT LCASE( 'The CAPITAL of INDIA is NEW DELHI');
+   Output:  the capital of india is new delhi
+
+10. LEFT String Function
+    This string function shows the leftmost characters from the given string.
+    It reads the characters to the given index position.
+
+    following SELECT query shows the 11 leftmost characters from the given string:
+    SELECT LEFT( 'The CAPITAL of INDIA is NEW DELHI', 11);
+    Output: The CAPITAL
+
+10. LOCATE String Function
+    This string function shows the index value of the first occurrence of the word in the given string.
+    The following SELECT query shows the index value of the INDIA word in the given sentence:
+
+    SELECT LOCATE('INDIA','The CAPITAL of INDIA is NEW DELHI ', 1);
+    Output: 16
+
+
+11. LOWER String Function
+    This string function allows users to convert the specified string into lower case letters.
+    This function is also the same as the LCASE() string function.
+
+    The following SELECT query converts the upper case letters of the given string into the lower case letters.
+    ELECT LOWER( 'NEW DELHI IS THE CAPITAL OF INDIA');
+    Output: new delhi is the capital of india
+
+
+11. REPEAT
+    This string function writes the given string or character till the given number of times.
+
+    The following SELECT query writes the given string three times in the output.
+    SELECT REPEAT( 'javatpoint is an indian IT company', 3);
+    Output: javatpoint is an indian IT companyjavatpoint is an indian IT companyjavatpoint
+
+12. REPLACE
+    This string function cuts the given string by removing the given sub-string.
+
+    The following SELECT query removes the 'javatpoint' word from the original string:
+    SELECT REPLACE( 'javatpoint Indian IT company javatpoint', 'javatpoint');
+    Output: Indian IT company : REMOVE javatpoint FROM STRING
+
+13. REVERSE String Function
+    This string function of Structured query Language reverses all the characters of the string.
+
+    The following SELECT query reverses the characters of the JavaTpoint string:
+    SELECT REVERSE( 'javatpoint');
+    Output:  tnioptavaj
+
+14. RIGHT String Function
+    This string function shows the right-most characters from the given string.
+    It reads the characters from the right side to the given index position.
+    This syntax uses RIGHT() with the string:
+    SELECT RIGHT(String, Index_position);
+
+     The following SELECT query shows the 11 right-most characters from the given string:
+
+    SELECT RIGHT( 'The CAPITAL of INDIA is NEW DELHI', 11);
+    Output:  s NEW DELHI  (11 position from right end chars)
+
+15. SUBSTR String Function
+    This string function extracts the sub-string from the given position of the original string.
+
+    The following SELECT query shows the character from the 5th to the 10th position of the string.
+
+    SELECT SUBSTR( 'NEW DELHI IS THE CAPITAL OF INDIA', 5, 10);
+    Output: DELHI IS T
+
+16. SUBSTRING String Function
+
+    This string function shows the character of the given index value in the original string.
+
+    The following SELECT query shows the character of the fifth position from the left side.
+     SELECT SUBSTRING('NEW DELHI IS THE CAPITAL OF INDIA', 5, 1);
+    Output:  D
+
+17. SUBSTRING_INDEX String Function
+    This string function shows the substring before the given symbol in the original string.
+
+    he following SELECT query shows the substring before the @ symbol:
+
+    SELECT SUBSTRING_INDEX( 'NEW DELHI@IS THE CAPITAL OF INDIA', @, 1);
+    Output:  NEW DELHI
+
+18. UCASE &  UPPER :
+
+    This string function allows users to convert the specified string into the UPPER case letters.
+    This function is also the same as the UCASE() string function.
+    The following SELECT query converts the LOWER caseletters of the given string into the UPPER case letters.
+
+    SELECT UPPER( 'new delhi is the capital of India');
+    Output: NEW DELHI IS THE CAPITAL OF INDIA
+

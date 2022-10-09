@@ -1,3 +1,7 @@
+All About All Keys
+1. https://vocepergunta.com/library/artigo/read/4745-why-can-a-foreign-key-be-null#question-0
+2. https://www.analyticsvidhya.com/blog/2020/07/difference-between-sql-keys-primary-key-super-key-candidate-key-foreign-key/#:~:text=What%20is%20a%20Super%20key,they%20can%20identify%20tuples%20uniquely.
+
 1. here is a slight difference b/w delete and truncate statement. The DELETE statement only deletes the rows from the table
    based on the condition defined by WHERE clause or delete all the rows from the table when condition is not specified.
    But it does not free the space containing by the table.
@@ -88,10 +92,123 @@
 10. The SQL full join is the result of combination of both left and right outer join and the join tables have all the records from both tables.
     It puts NULL on the place of matches not found.
 
-11.
+11. Primary Key
+    A column or columns is called primary key (PK) that uniquely identifies each row in the table.
 
+    If you want to create a primary key, you should define a PRIMARY KEY constraint when you create or modify a table.
 
+    When multiple columns are used as a primary key, it is known as composite primary key.
 
+    In designing the composite primary key, you should use as few columns as possible. It is good for storage and performance both,\
+    the more columns you use for primary key the more storage space you require.
 
+    Inn terms of performance, less data means the database can process faster.
 
+    Points to remember for primary key:
+    Primary key enforces the entity integrity of the table.
+    Primary key always has unique data.
+    A primary key length cannot be exceeded than 900 bytes.
+    A primary key cannot have null value.
+    There can be no duplicate value for a primary key.
+    A table can contain only one primary key constraint.
+    Note : The main advantage of this uniqueness is that we get fast access.
 
+12. Foreign Key
+    In the relational databases, a foreign key is a field or a column that is used to
+    establish a link between two tables.
+    In simple words you can say that, a foreign key in one table used to point primary key in another
+    table.
+
+13. Composite Key
+    A composite key is a combination of two or more columns in a table that can be used to uniquely identify each row
+    in the table when the columns are combined uniqueness is guaranteed, but when it taken individually it does not guarantee uniqueness.
+    Sometimes more than one attributes are needed to uniquely identify an entity. A primary key that is made by the
+    combination of more than one attribute is known as a composite key.
+     In other words we can say that:
+
+    Composite key is a key which is the combination of more than one field or column of a given table. It may be a candidate key or primary key.
+
+14. Unique Key
+    A unique key is a set of one or more than one fields/columns of a table that uniquely identify a record in a database table.
+    You can say that it is little like primary key but it can accept only one null value and it cannot have duplicate values.
+    The unique key and primary key both provide a guarantee for uniqueness for a column or a set of columns.
+    There is an automatically defined unique key constraint within a primary key constraint.
+    There may be many unique key constraints for one table, but only one PRIMARY KEY constraint for one table.
+
+15. Key difference between SQL Keys
+    SQL keys are used to uniquely identify rows in a table.
+    SQL keys can either be a single column or a group of columns.
+    Super key is a single key or a group of multiple keys that can uniquely identify tuples in a table.
+    Super keys can contain redundant attributes that might not be important for identifying tuples.
+    Candidate keys are a subset of Super keys. They contain only those attributes which are required to uniquely identify tuples.
+    All Candidate keys are Super keys. But the vice-versa is not true.
+    Primary key is a Candidate key chosen to uniquely identify tuples in the table.
+    Primary key values should be unique and non-null.
+    There can be multiple Super keys and Candidate keys in a table, but there can be only one Primary key in a table.
+    Alternate keys are those Candidate keys that were not chosen to be the Primary key of the table.
+    Composite key is a Candidate key that consists of more than one attribute.
+    Foreign key is an attribute which is a Primary key in its parent table but is included as an attribute in the host table.
+    Foreign keys may accept non-unique and null values
+
+16. IN vs EXITS
+
+    The main difference between them is that IN selects a list of matching values, whereas EXISTS returns the Boolean value TRUE or FALSE
+    The IN operator is used to retrieves results when the specified value matches any value in a set of values or is returned by a subquery.
+    This operator allows us to specify multiple values along with the WHERE clause. It reduces the use of multiple OR conditions in SELECT, INSERT,
+    UPDATE, and DELETE queries; that's why it is also called the shorthand for multiple OR conditions.
+
+    In this operator, the inner query executes first, and the result obtained is used by the outer query to display the output. It should be
+    remembered that the inner query is executed only once. The IN operator has the following syntax:
+
+    EXISTS is a Boolean operator which checks the subquery result and returns an either TRUE or FALSE value.
+    It is used in combination with subquery and checks whether a row is returned through this subquery or not. This operator returns TRUE if the
+    subquery returns single or multiple records. Otherwise, it gives a FALSE result when no records are returned.
+
+    When the EXISTS operator detects the first true event, it automatically terminates for further processing.
+    This feature enhances the query's efficiency. We can use the EXISTS operator with SELECT, UPDATE, DELETE, and INSERT statements
+
+    Key differences between IN and EXISTS Operator
+    The following points explain the main differences between IN and EXISTS clause:
+
+    The IN clause scan all records fetched from the given subquery column, whereas EXISTS clause evaluates true or false, and the SQL engine
+    quits the scanning process as soon as it found a match.
+    When the subquery results are large, EXISTS operator provides better performance. In contrast,
+    when the sub-query results are small, the IN operator is faster than EXISTS.
+    IN operator always picks the matching values list, whereas EXISTS returns the Boolean values TRUE or FALSE.
+    EXISTS operator can only be used with subqueries, whereas we can use the IN operator on subqueries and values both.
+    The EXISTS clause can compare everything with NULLs, while the IN clause can't compare anything with NULL.
+    IN operator performs a direct match between the columns specified before the IN keyword and a subquery result.
+    Conversely, EXISTS operator does not check for a match because it only verifies data existence in a subquery.
+
+17 .GROUP BY, ORDER BY :
+
+    GROUP BY is always placed after the WHERE clause but before the ORDER BY statement. On the other hand,
+    ORDER BY is always used after the GROUP BY statement.
+
+18. Difference between WHERE and HAVING :
+
+    The difference between the WHERE and HAVING clause is the most common question posed during an interview time.
+    The main difference between them is that the WHERE clause is used to specify a condition for filtering records
+    before any groupings are made, while the HAVING clause is used to specify a condition for filtering values from a group.
+
+    HAVING clause in MySQL used in conjunction with GROUP BY clause enables us to specify conditions that filter which group
+    results appear in the result. It returns only those values from the groups in the final result that fulfills certain conditions.
+    We can also use the WHERE and HAVING clause together during selection. In this case, WHERE clause first filters the individual rows,
+    then rows are grouped, performs aggregate calculations, and at last HAVING clause filter the groups.
+
+    Key Differences between WHERE and HAVING Clause
+    The following points explain the main differences between database and schema:
+
+    WHERE clause filters individual rows, whereas the HAVING clause filters groups instead of one row at a time.
+    We cannot use the WHERE clause with aggregate functions because it works for filtering individual rows. In contrast, HAVING can works with
+    aggregate functions because it is used to filter groups.
+    Row operations are handled by the WHERE clause, while the HAVING clause handles column operations to summarized rows or groups.
+    WHERE comes before GROUP BY, which means WHERE clause filter rows before performing aggregate calculations. HAVING comes after GROUP BY,
+    which means the HAVING clause filters rows after performing aggregate calculations. Consequently, HAVING is slower than WHERE in terms of
+    efficiency and should be avoided wherever possible.
+    We can combine the WHERE and HAVING clause together in a SELECT query. In this case, the WHERE clause is used first to filter individual rows.
+    The rows are then grouped, perform aggregate calculations, and finally, the HAVING clause is used to filter the groups.
+    The WHERE clause retrieves the desired data based on the specified condition. On the other hand, the HAVING clause first fetches whole data,
+    and then separation is done based on the specified condition.
+    Without a SELECT statement, we cannot use the HAVING clause. Conversely, we can use a WHERE with SELECT, UPDATE, and DELETE statements.
+    WHERE clause is a pre-filter, whereas HAVING clause is a post-filter.
