@@ -10,8 +10,38 @@ All About All Keys
 ----" Truncate table is faster and uses lesser resources than DELETE TABLE command." ------
    The rollback process is not possible after truncate table statement. Once you truncate a table you cannot use a flashback
    table statement to retrieve the content of the table.
+   his command does not maintain the transaction log during the execution. It deallocates the data pages instead of rows and makes an
+    entry for the deallocating pages instead of rows in transaction logs. This command also locks the pages instead of rows; thus,
+    it requires fewer locks and resources.
 
-2. Some statements cannot be rolled back. In general, these include data definition language (DDL) statements, such as those
+   The following points must be considered while using the TRUNCATE command:
+
+   We cannot use the WHERE clause with this command so that filtering of records is not possible.
+   We cannot rollback the deleted data after executing this command because the log is not maintained while performing this operation.
+   We cannot use the truncate statement when a table is referenced by a foreign key or participates in an indexed view.
+   The TRUNCATE command doesn't fire DELETE triggers associated with the table that is being truncated because it does not operate on individual rows.
+
+   Create Table Customer
+   ( Customer_id INT(10),
+     Customer_name VARCHAR(15),
+     CUSTOMER ADDRESS VARCHAR(25),
+     CUSTOMER_EMAIL VARCHAR(25) NOT NULL FOREIGN KEY,
+   )
+LINK : https://www.javatpoint.com/mysql-truncate-table
+   If we perform the TRUNCATE operation for the table that uses a foreign key constraint, we will get the following error:
+
+          ERROR 1217 (23000): Cannot delete or update a parent row: a foreign key constraint fails
+          In that case, we need to log into the MySQL server and disable foreign key checks before executing the TRUNCATE statement as below:
+
+          SET FOREIGN_KEY_CHECKS=0;
+          Now, we are able to truncate tables. After execution, re-enable foreign key checks as given below:
+
+         SET FOREIGN_KEY_CHECKS=1;
+   Note : We are not able to rollback the DDL command because transaction log is not maintained during execution
+        of these commands.
+        We cannot rollback the deleted data after executing this command because the log is not maintained while performing this operation.
+
+2. Some statements cannot be rolled back. In general, these included data definition language (DDL) statements, such as those
    that create or drop databases, those that create, drop, or alter tables or stored routines.
    You should design your transactions not to include such statements. If you issue a statement early in a transaction that
    cannot be rolled back, and then another statement later fails, the full effect of the transaction cannot be rolled back in
