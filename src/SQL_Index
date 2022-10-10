@@ -1,0 +1,19 @@
+SQL INDEX
+    The Index in SQL is a special table used to speed up the searching of the data in the database tables. It also retrieves a vast amount of data from the tables frequently. The INDEX requires its own space in the hard disk.
+    The index concept in SQL is same as the index concept in the novel or a book.
+    It is the best SQL technique for improving the performance of queries. The drawback of using indexes is that they slow down the execution time of UPDATE and INSERT statements. But they have one advantage also as they speed up the execution time of SELECT and WHERE statements.
+    In SQL, an Index is created on the fields of the tables. We can easily build one or more indexes on a table. The creation and deletion of the Index do not affect the data of the database.
+    In this article, you will learn how to create, alter, and remove an index in the SQL database.
+
+    Why SQL Index?
+        The following reasons tell why Index is necessary in SQL:
+
+        SQL Indexes can search the information of the large database quickly.
+        This concept is a quick process for those columns, including different values.
+        This data structure sorts the data values of columns (fields) either in ascending or descending order. And then, it assigns the entry for each value.
+        Each Index table contains only two columns. The first column is row_id, and the other is indexed-column.
+        When indexes are used with smaller tables, the performance of the index may not be recognized.
+        Create an INDEX
+    In SQL, we can easily create the Index using the following CREATE Statement:
+
+    CREATE INDEX Index_Name ON Table_Name ( Column_Name);

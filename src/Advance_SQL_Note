@@ -1,0 +1,44 @@
+--- SQL CAST Function
+           The SQL CAST function is mainly used to convert the expression from one data type to another data type.
+           If the SQL Server CAST function is unable to convert a declaration to the desired data type,
+           this function returns an error. We use the CAST function to convert numeric data into character or
+           string data.
+
+           SELECT First_Name, CAST (Score AS Integer)
+           Int_Score FROM Student_Score;
+
+           we are using the CAST function to convert the SCORE column from type FLOAT to INTEGER. When we do it,
+           various RDBMS have many rules to handle the numbers to the point of decimal.
+
+--- How to create functions in SQL?
+    SQL has many built-in functions for performing the calculation of data.
+    SQL provides built-in functions to perform the operations. Some useful functions of SQL
+    are performing the mathematical calculations, string concatenation and sub-string etc.
+
+    SQL functions are divided into two parts:
+
+    Aggregate Functions
+        Scalar Functions
+        SQL Aggregate Functions
+        SQL Aggregate functions return a single value which is calculated from the values.
+
+        AVG(): It returns the average value of the column.
+        COUNT(): It returns the number of rows in the table.
+        FIRST(): It returns the first value of the column.
+        LAST(): It returns the last value
+        MAX(): It returns the largest value of the column.
+        MIN(): It returns the smallest value of the column.
+        SUM(): It returns the sum of rows of the table.
+        SQL Scalar functions
+        SQL Scalar functions returns the single value according to the input value.
+
+    Scalar functions:
+        UCASE(): It converts the database field to uppercase.
+        LCASE(): It converts a field to lowercase.
+        MID(): It extracts characters from the text field.
+        LEN(): It returns the length of a text field.
+        ROUND(): It rounds a numeric field to the number of decimals.
+        NOW(): It returns the current date and time.
+        FORMAT(): It formats how a field is to be displayed.
+
+---
